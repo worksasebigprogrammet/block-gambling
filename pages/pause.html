@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pause - Block Gambling</title>
+  <link rel="stylesheet" href="pause.css">
+</head>
+<body>
+  <div class="pause-container">
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+
+    <!-- Main Content -->
+    <main class="pause-content">
+      <!-- Icon -->
+      <div class="pause-icon">⏸️</div>
+
+      <!-- Title -->
+      <h1 class="pause-title">Mise en pause</h1>
+
+      <!-- Message -->
+      <p class="pause-message">
+        Ce site est dans votre liste de blocage.
+        <br>
+        <span class="pause-secondary">Prenez un moment pour réfléchir.</span>
+      </p>
+
+      <!-- Blocked URL (optionnel) -->
+      <div id="blocked-url-info" class="blocked-url-info" style="display: none;">
+        <small id="blocked-url">Site bloqué</small>
+      </div>
+
+      <!-- Penalty Warning -->
+      <div id="penalty-info" class="penalty-info" style="display: none;">
+        <p class="penalty-text">⚠️ <strong>Pénalité active</strong></p>
+        <p class="penalty-detail">Blocage renforcé pendant 24h</p>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="timer-section">
+        <div class="timer-label">Attendre</div>
+        <div id="countdown" class="countdown">60</div>
+        <div class="timer-unit">secondes</div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <!-- Back Button -->
+      <button id="back-button" class="btn-back" disabled>
+        ← Revenir
+      </button>
+
+      <!-- Optional Message -->
+      <div class="reflection-prompt">
+        <p>💭 <em>Ce que nous bloquer un moment aide à briser les habitudes impulsives.</em></p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pause-footer">
+      <p>🎰 Block Gambling - Votre allié contre l'addiction</p>
+    </footer>
+  </div>
+
+  <script src="pause.js"></script>
+</body>
+</html>

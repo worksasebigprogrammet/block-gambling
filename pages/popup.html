@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Gambling</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-top">
+        <h1>🎰 Block Gambling</h1>
+        <button id="dark-mode-toggle" class="toggle-btn dark-mode-btn" title="Basculer le thème">🌙</button>
+      </div>
+
+      <!-- Statut Extension -->
+      <div class="status-bar">
+        <span class="status-label">État:</span>
+        <span id="extension-status" class="status-active">🟢 Activée</span>
+        <button id="toggle-extension" class="status-toggle-btn">Désactiver</button>
+      </div>
+    </header>
+
+    <!-- Avertissement Pénalité -->
+    <div id="penalty-status"></div>
+
+    <!-- Section Ajouter un Domaine -->
+    <section class="add-section">
+      <h2>Ajouter un domaine</h2>
+      <p class="section-desc">Ajoutez des sites de jeux à votre liste personnalisée</p>
+
+      <div class="input-group">
+        <input
+          id="entry-input"
+          type="text"
+          placeholder="ex: casino.com ou poker"
+          class="input-field"
+          autocomplete="off"
+        >
+        <button id="add-button" class="btn btn-primary">Ajouter</button>
+      </div>
+
+      <div id="message" class="message"></div>
+    </section>
+
+    <!-- Statistiques -->
+    <section class="stats-section">
+      <h2>Statistiques</h2>
+      <div id="stats" class="stats-container">
+        <div class="stat-item">
+          <span class="stat-label">En cours de chargement...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Liste Personnalisée -->
+    <section class="blocklist-section">
+      <h2>Mes domaines bloqués</h2>
+      <div id="user-blocklist" class="blocklist">
+        <p class="empty-state">Chargement...</p>
+      </div>
+    </section>
+
+    <!-- Liste de Base -->
+    <section class="blocklist-section">
+      <div id="base-blocklist"></div>
+    </section>
+
+    <!-- Infos -->
+    <footer class="footer">
+      <p class="info-text">
+        ℹ️ <strong>Important:</strong> Vous ne pouvez pas supprimer les domaines ajoutés.
+        Cette extension est conçue comme un engagement unidirectionnel.
+      </p>
+      <p class="info-text warning-text">
+        ⚠️ Toute tentative de contournement ou suppression entraîne une pénalité de 24h.
+      </p>
+
+      <button id="refresh-button" class="btn btn-secondary">Actualiser</button>
+    </footer>
+  </div>
+
+  <script src="../src/popup.js"></script>
+</body>
+</html>

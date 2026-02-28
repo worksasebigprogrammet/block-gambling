@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Block Gambling - Anti-Addiction",
+  "version": "1.0.0",
+  "description": "Extension anti-gambling avec friction intelligente. Blocage unidirectionnel des sites de jeux d'argent.",
+  "permissions": [
+    "storage",
+    "webRequest",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_title": "Block Gambling",
+    "default_icons": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["pages/pause.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions_policy": {
+    "geolocation": []
+  }
+}

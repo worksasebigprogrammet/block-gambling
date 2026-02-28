@@ -1,0 +1,367 @@
+/**
+ * PAUSE PAGE STYLES
+ * Design anti-impulsivité avec friction forte
+ */
+
+:root {
+  --primary-color: #ef4444;
+  --primary-dark: #dc2626;
+  --accent-color: #fbbf24;
+  --bg-primary: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.pause-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Background Pattern */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      #111827 10px,
+      #111827 20px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Content */
+.pause-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  background: white;
+  padding: 4rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(239, 68, 68, 0.2);
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon */
+.pause-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Title */
+.pause-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+/* Message */
+.pause-message {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.pause-secondary {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Blocked URL Info */
+.blocked-url-info {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+#blocked-url {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-family: 'Monaco', 'Courier New', monospace;
+  word-break: break-all;
+}
+
+/* Penalty Warning */
+.penalty-info {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #fef2f2;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.penalty-text {
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.penalty-detail {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Timer Section */
+.timer-section {
+  margin: 2rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.countdown {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.timer-unit {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+  width: 100%;
+  animation: progress-animation 60s linear forwards;
+}
+
+@keyframes progress-animation {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Back Button */
+.btn-back {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: not-allowed;
+  background: #e5e7eb;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-back:disabled {
+  opacity: 0.5;
+}
+
+.btn-back:not(:disabled) {
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.btn-back:not(:disabled):hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+}
+
+.btn-back:not(:disabled):active {
+  transform: translateY(0);
+}
+
+/* Reflection Prompt */
+.reflection-prompt {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #065f46;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.reflection-prompt p {
+  margin: 0;
+}
+
+/* Footer */
+.pause-footer {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.pause-footer p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pause-content {
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+  .pause-title {
+    font-size: 2rem;
+  }
+
+  .pause-message {
+    font-size: 1rem;
+  }
+
+  .countdown {
+    font-size: 3rem;
+  }
+
+  .pause-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pause-content {
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .pause-title {
+    font-size: 1.75rem;
+  }
+
+  .pause-message {
+    font-size: 0.95rem;
+  }
+
+  .countdown {
+    font-size: 2.5rem;
+  }
+
+  .btn-back {
+    width: 100%;
+  }
+
+  .pause-icon {
+    font-size: 3.5rem;
+  }
+}
+
+/* Printing disabled */
+@media print {
+  body {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
